@@ -8,6 +8,10 @@ namespace Test_UI
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddHttpClient("Citizen", httpClient => 
+            {
+                httpClient.BaseAddress = new Uri("https://localhost:7201/Citizen");
+            });
 
             var app = builder.Build();
 
