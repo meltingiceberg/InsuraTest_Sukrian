@@ -30,13 +30,18 @@ namespace Test_DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Alamat")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1250)
+                        .HasColumnType("nvarchar(1250)");
 
                     b.Property<string>("NIK")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("Nama")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("StatusPerkawinan")
                         .HasColumnType("int");

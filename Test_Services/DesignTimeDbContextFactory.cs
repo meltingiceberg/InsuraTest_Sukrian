@@ -15,7 +15,7 @@ namespace Test_DataAccess
         {
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../Test_API/appsettings.json").Build();
             var builder = new DbContextOptionsBuilder<CitizenDbContext>();
-            var connectionString = configuration.GetConnectionString("DatabaseConnection");
+            var connectionString = configuration.GetConnectionString("CitizenDB");
             builder.UseSqlServer(connectionString);
             return new CitizenDbContext(builder.Options);
         }

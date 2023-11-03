@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Test_DataAccess;
+
 namespace Test_API
 {
     public class Program
@@ -7,6 +10,11 @@ namespace Test_API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<CitizenDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("CitizenDB"));
+            });
+            builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

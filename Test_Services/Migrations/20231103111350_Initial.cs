@@ -16,9 +16,9 @@ namespace Test_DataAccess.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NIK = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Nama = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Alamat = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NIK = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
+                    Nama = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Alamat = table.Column<string>(type: "nvarchar(1250)", maxLength: 1250, nullable: true),
                     StatusPerkawinan = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
